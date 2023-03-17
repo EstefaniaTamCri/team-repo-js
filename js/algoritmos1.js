@@ -21,39 +21,45 @@ function A1E7() {
   }
 
   let resultado = `${euros}€ equivalen a: ${tasadolar} dolares americanos, ${tasayen} yen japoneses, ${tasalibra} libras esterlinas y ${tasafranco} francos suizos`;
+
   return resultado;
 }
 //  A1 E8
-// function A1E8() {
-let num1 = parseInt(prompt("Introduzca número 1"));
-let num2 = parseInt(prompt("Introduzca número 2"));
-let operacion = prompt("Elige la operación (suma, resta, multi, divide");
+function A1E8() {
+  let num1 = parseInt(prompt("Introduzca número 1"));
+  let num2 = parseInt(prompt("Introduzca número 2"));
+  let operacion = prompt("Elige la operación (suma, resta, multi, divide");
 
-if (num1 == !isNaN) {
-  console.log("Introduzca un valor correcto");
-} else if (num2 == !isNaN) {
-  console.log("Introduzca un valor correcto");
-} else {
-  switch (operacion) {
-    case "suma":
-      console.log("El resultado de la suma es: ", num1 + num2);
-      break;
-    case "resta":
-      console.log("El resultado de la resta es: ", num1 - num2);
-      break;
+  if (!isNaN(num1) == false) {
+    console.log("Introduzca un valor correcto");
+  } else if (!isNaN(num2) == false) {
+    console.log("Introduzca un valor correcto");
+  } else {
+    switch (operacion) {
+      case "suma":
+        console.log("El resultado de la suma es: ", num1 + num2);
+        break;
+      case "resta":
+        console.log("El resultado de la resta es: ", num1 - num2);
+        break;
 
-    case "multi":
-      console.log("El resultado de la multiplicación es: ", num1 * num2);
-      break;
-    case "divide":
-      console.log("El resultado de la división es: ", num1 / num2);
-      break;
+      case "multi":
+        console.log("El resultado de la multiplicación es: ", num1 * num2);
+        break;
+      case "divide":
+        if (num2 > num1) {
+          console.log("No puedes dividir un número menor entre uno mayor");
+        } else {
+          console.log("El resultado de la división es: ", num1 / num2);
+        }
 
-    default:
-      console.log("Eliga una operación correcta");
-      break;
+        break;
+
+      default:
+        console.log("Eliga una operación correcta");
+        break;
+    }
   }
 }
-// }
 
-// console.log(A1E8());
+// console.log(A1E7());
