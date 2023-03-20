@@ -79,6 +79,6 @@ let citas = [
 
 
 
-setInterval(mostrarcitaaleatoria, 10000)
+// setInterval(mostrarcitaaleatoria, 10000)
 
 
