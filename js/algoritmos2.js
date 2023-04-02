@@ -62,42 +62,47 @@ const a2e6 = () => {
     // guardar el caracter encontrado en start, en la variable caracterActual//
     let caracterActual = texto[start];
     // este if cuenta cuántos caracteres no son espacios en blancos ,saltos de lineas o tarburador//
-    // se utiliza está condición para que no sea espacios en blancos , saltos de lineas o tarburador//
+    // se utiliza está ! condición para que no sea espacios en blancos , saltos de lineas o tarburador//
     if (
-        caracterActual !== " " &&
-        caracterActual !== "\n" &&
-        caracterActual !== "\t"
+      caracterActual !== " " &&
+      caracterActual !== "\n" &&
+      caracterActual !== "\t"
     ) {
       // si la condición es verdadera se incrementa la longitdusTextoSinEspacios en 1 //
       longitudTextoSinEspacios++;
     }
   }
   //Imprimir las estadísticas//
+  // sacar por consola la longitud del texto , contando toda la longitud incluso los espacios //
   console.log("length:", texto.length, "characters");
-  console.log("Length without white-space:", longitudTextoSinEspacios , "characters");
-
-
-  let palabrasUnicas = new Set(palabras);
-  console.log("Words:", numPalabras);
-  console.log("Unique words:", palabrasUnicas.size);
+  // sacar por consola la longitud del texto sin espacios //
   console.log(
-    "Unique words(%):",
-    Math.round((palabrasUnicas.size / numPalabras) * 100) + "%"
+    "Length without white-space:",
+    longitudTextoSinEspacios,
+    "characters"
   );
 
+  // se crea un objeto set para contar solo las palabras unicas , se asegura de que solo se retenga las palabras únicas descartando cualquier duplicado
+  let palabrasUnicas = new Set(palabras);
+  // saca por consola el número de palabras //
+  console.log("Words:", numPalabras);
+  // devuelve la cantidad de palabras unicas sin contar las repetidas //
+  console.log("Unique words:", palabrasUnicas.size);
+  // calcular el porcentaje de palabras únicas en relación con el número total de palabras , multiplica el resultado *100 para convertir el número decimal en porcentaje  y concatenar la cadena de texto con %
+  console.log("Unique words(%):",Math.round((palabrasUnicas.size / numPalabras) * 100) + "%" );
+// creo una variable let minPalabra , para almacenar la longitud de la palabra más corta //
+// encontrar la longitud de la palabra más corta //
   let minPalabra = Math.min(...palabras.map((palabra) => palabra.length));
   console.log("Length of shortest word:", minPalabra, "characters");
-
+// encontrar la longitud de la palabra más larga //
   let maxPalabra = Math.max(...palabras.map((palabra) => palabra.length));
   console.log("Length of longest word:", maxPalabra, "characters");
-
+// calcular el promedio de la longitud de palabras //
   let longitudPalabras = palabras.reduce(
     (suma, palabra) => suma + palabra.length,
     0
   );
   let promedioLongitudPalabras = Math.round(longitudPalabras / numPalabras);
   console.log("Avg. word length:", promedioLongitudPalabras);
-
-  
 };
 a2e6();

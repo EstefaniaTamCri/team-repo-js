@@ -1,30 +1,37 @@
-// ae1e4 semáforo//
-const ae1e4 = () => {
-  // Se inicia la variable isGreen//
-  let isGreen = false;
-  // hacer funcionar el semáforo si es false o true //
-  if (isGreen) {
-    console.log("Cross the road");
-    isGreen = false;
-  } else {
-    console.log("Please await");
-    isGreen = true;
-  }
-};
-ae1e4();
 
-// a1e6 programa email y contraseña//
-const a1e6 = () => {
-  // Guardar la variable userEmail y userPassword //
+// a1e4 Algoritmo 1 //
+//Escribe un programa que simula un semáforo, estara controlado por una variable isGreen 
+const a1e4 = () =>{
+  // se inicia la variable isGreen , para controlar el estado del semáforo//
+  let isGreen = true;
+  // hacer funcionar el semáforo si es true Cross the road //
+if(isGreen){
+  console.log("Cross the road");
+  isGreen = true;
+  // y si no es true please await//
+}else{
+  console.log("Please await");
+  isGreen = false;
+}
+}
+a1e4();
+
+
+// a1e6 Algoritmos 1 // 
+// Escribir un programa que pida al usuario email y contraseña y deberá comparar los datos introducidos con los siguientes , que deberan estar guardados en variables y ponerle un mensaje de bienvenida y si los datos no son correctos pedirle que vuelva escribir sus datos //
+const a1e6 = () =>{
+  // guarda dos variables que contienen los datos email y contraseña que el usuario debe introducir //
   let userEmail = "tolkien@lordofrings.com";
-  let userPassword = "aNBR6ZeWPY";
-  // Pedir al usuario que ingrese sus datos //
+  let userPassword = "aNBR6ZeWPY"
+  // pedir al usuario que introduzca sus datos //
   let email = prompt("Please, enter your email address:");
-  let password = prompt("Please, enter your password ");
-  // Comparar lo que ha escrito el usuario si no es una es la otra//
-  if (userEmail === email && userPassword === password) {
+  let password = prompt("Please, enter your password:");
+  // comparar los datos introducidos por el usuario sean iguales que los datos guardados en las variables //
+  if (userEmail == email && userPassword == password) {
+    // si ambos son iguales se muestra por consola el mensaje de bienvenido //
     console.log("Welcome Mr. Tolkien");
-  } else {
+    // si no son iguales se muestra por consola , el mensaje que vuelva a escribir otra vez password o email //
+  }else{
     console.log("Wrong password or email");
   }
 }
