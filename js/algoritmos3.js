@@ -47,6 +47,7 @@ console.log("Min value: ", minvalue)
 // A3E6
 
 // 20 citas de Oscar Wilde en un array
+function A3E6() {
 
 let citas = [
     "Sé tú mismo, los demás puestos están ocupados.",
@@ -71,14 +72,94 @@ let citas = [
     "La experiencia es el nombre que damos a nuestras equivocaciones."
   ];
   
-
+// Se crea una función que recorre el array y muestra por consola una cita aleatoria.
   function mostrarcitaaleatoria() {
     let citaaleatoria = citas[Math.floor(Math.random()*(19 - 0 +1)+ 0)];
     console.log(citaaleatoria); 
   }
 
+// Se llama a la función y se muestra por consola la cita aleatoria cada 10 segundos.
+let interval = setInterval(mostrarcitaaleatoria, 10000)
+
+// Se ejecuta la funcion interval durante 2 minutos.
+setTimeout(function() {
+    clearInterval(interval);
+}, 120000);
+}
+
+// A3E8
+
+function A3E8() {
 
 
-// setInterval(mostrarcitaaleatoria, 10000)
 
+let palos = ["Clubs ♣", "Diamonds ♦", "Hearts ♥", "Spades ♠"];
+let cartas = ["ACE", "KING", "QUEN", "JACK", 10, 9, 8, 7, 6, 5, 4, 3, 2];
 
+ let saldo = 500;
+ let seguir = ""
+ let saldoact = saldo
+ let beneficts = 0
+ function card(numCart){
+  numAle1 = Math.floor(Math.random() * ((palos.length-1) + 0 + 1) + 0);
+  numAle2 = Math.floor(Math.random() * ((cartas.length-1) + 0 + 1) + 0);
+ let cartaPalo = palos[numAle1];
+ let cartaAle = cartas[numAle2];
+ console.log('Carta-' + numCart + ": "+ cartaAle + "-"+ cartaPalo); 
+     return {
+      cartaAle: cartaAle,
+      cartaPalo: cartaPalo    }   
+  }
+  do {let apuesta = parseInt(prompt("Ingrese la apuesta"));
+
+  if (apuesta > saldo) {         
+     console.log("Saldo insuficiente");
+     apuesta = parseInt(prompt("Ingrese la apuesta de nuevo, superó el saldo"));
+        
+     } if (apuesta <= saldo) {
+        
+         let carta1 = card(1).cartaAle;
+         let carta2 = card(2).cartaAle;
+  let posicionCarta1 = cartas.indexOf(carta1);
+  let posicionCarta2 = cartas.indexOf(carta2);
+  console.log(carta1); 
+  console.log(carta2); 
+  if(posicionCarta1 < posicionCarta2){
+     console.log('You Win');
+      saldoact += apuesta
+      console.log("El saldo actual es de: "+saldoact);
+     seguir = prompt("Quiere seguir jugando")
+  }
+  else if(posicionCarta2 < posicionCarta1){
+      console.log('You Lose');
+           saldoact -= apuesta
+    console.log("El saldo actual es de: "+saldoact);
+     seguir = prompt("Quiere seguir jugando")
+  }else if(posicionCarta1 == posicionCarta2){
+     console.log('Draw');
+      console.log("El saldo actual es de: "+saldoact);
+     seguir = prompt("Quiere seguir jugando")
+  }
+ 
+  }else {
+      console.log("Introduzca una cantidad válida");
+  }
+  } while (seguir === "y"){
+
+      seguir = prompt("¿Quiere seguir jugando?")
+ }
+  if(seguir !== "n" ){    
+       seguir = prompt("Introduzca una opción valida, ¿quiere seguir jugando?")
+
+  }
+  if (seguir === "n"){
+   }
+  let beneficios = saldo - saldoact;
+ if (beneficios > 0) {
+    console.log("Beneficio: - " + beneficios);
+  } else if (beneficios < 0) {
+    console.log("Beneficio: + " + Math.abs(beneficios));
+  } else {
+    console.log("No has ganado ni perdido dinero.");
+  }
+ }
