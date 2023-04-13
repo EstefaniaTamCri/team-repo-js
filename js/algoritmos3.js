@@ -91,75 +91,85 @@ setTimeout(function() {
 
 function A3E8() {
 
-
-
+// Declaración de variables, cartas y palos.
 let palos = ["Clubs ♣", "Diamonds ♦", "Hearts ♥", "Spades ♠"];
-let cartas = ["ACE", "KING", "QUEN", "JACK", 10, 9, 8, 7, 6, 5, 4, 3, 2];
+let cartas = ["ACE", "KING", "QUEEN", "JACK", 10, 9, 8, 7, 6, 5, 4, 3, 2];
 
- let saldo = 500;
- let seguir = ""
- let saldoact = saldo
- let beneficts = 0
- function card(numCart){
-  numAle1 = Math.floor(Math.random() * ((palos.length-1) + 0 + 1) + 0);
-  numAle2 = Math.floor(Math.random() * ((cartas.length-1) + 0 + 1) + 0);
- let cartaPalo = palos[numAle1];
- let cartaAle = cartas[numAle2];
- console.log('Carta-' + numCart + ": "+ cartaAle + "-"+ cartaPalo); 
-     return {
-      cartaAle: cartaAle,
-      cartaPalo: cartaPalo    }   
+let saldo = 500;
+let seguir = "";
+let saldoact = saldo;
+let beneficios = 0;
+
+// Función que genera número aleatorio + palo y la muestra
+function card(numCart) {
+  numAle1 = Math.floor(Math.random() * ((palos.length - 1) + 0 + 1) + 0);
+  numAle2 = Math.floor(Math.random() * ((cartas.length - 1) + 0 + 1) + 0);
+  let cartaPalo = palos[numAle1];
+  let cartaAle = cartas[numAle2];
+  console.log('Carta-' + numCart + ": " + cartaAle + "-" + cartaPalo);
+  return {
+    cartaAle: cartaAle,
+    cartaPalo: cartaPalo
   }
-  do {let apuesta = parseInt(prompt("Ingrese la apuesta"));
+}
 
-  if (apuesta > saldo) {         
-     console.log("Saldo insuficiente");
-     apuesta = parseInt(prompt("Ingrese la apuesta de nuevo, superó el saldo"));
-        
-     } if (apuesta <= saldo) {
-        
-         let carta1 = card(1).cartaAle;
-         let carta2 = card(2).cartaAle;
+// Empieza la lógica del juego.
+do {
+    let apuesta = parseInt(prompt(`Saldo actual: ${saldoact} €. Ingrese la apuesta:`));
+
+
+  // Comprueba que la apuesta sea válida
+  while (apuesta > saldoact) {
+    console.log("Apuesta inválida. No puede apostar más de su saldo actual.");
+    apuesta = parseInt(prompt(`Saldo actual: ${saldoact} €. Ingrese la apuesta:`));
+  }
+
+  // Comienza el juego, genera la carta y comprueba si ganas o pierdes. Comparando valores
+  let carta1 = card(1).cartaAle;
+  let carta2 = card(2).cartaAle;
   let posicionCarta1 = cartas.indexOf(carta1);
   let posicionCarta2 = cartas.indexOf(carta2);
-  console.log(carta1); 
-  console.log(carta2); 
-  if(posicionCarta1 < posicionCarta2){
-     console.log('You Win');
-      saldoact += apuesta
-      console.log("El saldo actual es de: "+saldoact);
-     seguir = prompt("Quiere seguir jugando")
+  console.log(carta1);
+  console.log(carta2);
+
+  if (posicionCarta1 < posicionCarta2) {
+    console.log('You Win');
+    saldoact += apuesta;
+  } else if (posicionCarta2 < posicionCarta1) {
+    console.log('You Lose');
+    saldoact -= apuesta;
+  } else if (posicionCarta1 == posicionCarta2) {
+    console.log('Draw');
   }
-  else if(posicionCarta2 < posicionCarta1){
-      console.log('You Lose');
-           saldoact -= apuesta
-    console.log("El saldo actual es de: "+saldoact);
-     seguir = prompt("Quiere seguir jugando")
-  }else if(posicionCarta1 == posicionCarta2){
-     console.log('Draw');
-      console.log("El saldo actual es de: "+saldoact);
-     seguir = prompt("Quiere seguir jugando")
+
+  console.log(`Saldo actual: ${saldoact} €`);
+
+  if (saldoact > 0){
+     seguir = prompt("¿Quiere seguir jugando? (y/n)");
+  } else {
+    seguir = "n";
   }
  
-  }else {
-      console.log("Introduzca una cantidad válida");
-  }
-  } while (seguir === "y"){
 
-      seguir = prompt("¿Quiere seguir jugando?")
- }
-  if(seguir !== "n" ){    
-       seguir = prompt("Introduzca una opción valida, ¿quiere seguir jugando?")
+} while (seguir === "y" && saldoact > 0);
 
-  }
-  if (seguir === "n"){
-   }
-  let beneficios = saldo - saldoact;
- if (beneficios > 0) {
-    console.log("Beneficio: - " + beneficios);
-  } else if (beneficios < 0) {
+// Comprueba si ha perdido todo el saldo o ha decidido retirarse
+if (saldoact <= 0) {
+  console.log("Has perdido todo tu dinero. ¡Gracias por jugar!");
+} else {
+  console.log("¡Hasta la próxima!");
+}
+
+// Comprueba beneficios
+beneficios = saldoact - saldo;
+if (beneficios > 0) {
+  console.log(`Beneficio: + ${beneficios} €.`);
+}else if (beneficios < 0) {
     console.log("Beneficio: + " + Math.abs(beneficios));
-  } else {
+}
+else {
     console.log("No has ganado ni perdido dinero.");
   }
  }
+
+A3E8();
