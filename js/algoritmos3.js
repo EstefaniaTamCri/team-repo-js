@@ -165,7 +165,7 @@ beneficios = saldoact - saldo;
 if (beneficios > 0) {
   console.log(`Beneficio: + ${beneficios} €.`);
 }else if (beneficios < 0) {
-    console.log("Beneficio: + " + Math.abs(beneficios));
+    console.log("Beneficio: - " + Math.abs(beneficios));
 }
 else {
     console.log("No has ganado ni perdido dinero.");
