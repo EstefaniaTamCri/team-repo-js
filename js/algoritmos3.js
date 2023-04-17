@@ -1,48 +1,79 @@
-
 // A3E1
 
 function A3E1() {
+  // Pides número max y número minimo.
 
+  let max = parseInt(prompt("Introduzca número máximo"));
+  let min = parseInt(prompt("Introduzca número mínimo"));
 
-// Pides número max y número minimo.
+  // Creas array vacío
+  let arraynum = [];
 
-let max = parseInt(prompt("Introduzca número máximo"));
-let min = parseInt(prompt("Introduzca número mínimo"));
-
-
-// Creas array vacío
-let arraynum = []
-
-
-
-// Comprueba si el max es mayor a min, si no avisa por consola.
-if (min > max) {
+  // Comprueba si el max es mayor a min, si no avisa por consola.
+  if (min > max) {
     console.log("Introduzca los números en el orden correcto");
 
     // Si Max es mayor que min empieza el bucle
+  } else {
+    for (let start = 0; start < 20; start++) {
+      // Se obtienen 20 números aleatorios que se almacenan en al array vacío -> arraynum
 
-} else {for (let start = 0; start < 20; start++) {
+      let num = Math.floor(Math.random() * (max - min + 1) + min);
+      arraynum.push(num);
+    }
+  }
 
-// Se obtienen 20 números aleatorios que se almacenan en al array vacío -> arraynum
+  // Se almacena en dos variables el mayor y menor valor del array
+  // Se utiliza Math.max y Math.min junto al operador de propagación "..."
+  let maxvalue = Math.max(...arraynum);
+  let minvalue = Math.min(...arraynum);
 
-    let num = Math.floor(Math.random()*(max - min +1)+ min);
-    arraynum.push(num)
-
+  // Se muestra por consola el resultado
+  console.log("El array completo: ", arraynum);
+  console.log("Max value: ", maxvalue);
+  console.log("Min value: ", minvalue);
 }
-    
-}
 
-// Se almacena en dos variables el mayor y menor valor del array
-// Se utiliza Math.max y Math.min junto al operador de propagación "..." 
-let maxvalue = Math.max(...arraynum);
-let minvalue = Math.min(...arraynum);
+/*Ejercicio 2
+Escribe un programa que recoge la hora del sistema, y al cargar la página pregunta al usuario su nombre. A continuación, muestra un saludo personalizado (alerta) en función de la hora, teniendo en cuenta los siguientes rangos:
+• Entre las 5:00 y las 11:59 → “Good Morning, {userName}!”
+• Entre las 12:00 y las 17:59 → “Good Afternoon, {userName}!”
+• Entre las 18:00 y las 04:59 → “Good Evening, {userName}!”
+Los saludos deberán estar predefinidos en un objeto con el identificador “greeting”.
+*/
+const A3E2 = () => {
+  // Objeto "greeting" con los 3 saludos
+  const greeting = {
+    morning: "Good Morning",
+    afternoon: "Good Afternoon",
+    evening: "Good Evening",
+  };
 
-// Se muestra por consola el resultado
-console.log("El array completo: ",arraynum);
-console.log("Max value: ", maxvalue)
-console.log("Min value: ", minvalue)
- }
+  // Hora del sistema
+  const date = new Date();
+  const hour = date.getHours();
 
+  // Preguntar al usuario su nombre
+  const userName = prompt("What is your name?");
+
+  // Saludos en función de la hora
+  let greetingMsg;
+  if (hour >= 5 && hour <= 11) {
+    greetingMsg = greeting.morning;
+  } else if (hour >= 12 && hour <= 17) {
+    greetingMsg = greeting.afternoon;
+  } else {
+    greetingMsg = greeting.evening;
+  }
+
+  // Mostrar el saludo personalizado (si es válido)
+  if (userName.trim().length > 0) {
+    alert(`${greetingMsg}, ${userName}!`);
+  } else {
+    alert(`Enter a valid username`);
+    a3e2();
+  }
+};
 
 // A3E6
 
@@ -86,6 +117,7 @@ setTimeout(function() {
     clearInterval(interval);
 }, 120000);
 }
+
 
 // A3E8
 
@@ -172,4 +204,3 @@ else {
   }
  }
 
-A3E8();
