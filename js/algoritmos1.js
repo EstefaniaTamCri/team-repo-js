@@ -1,7 +1,7 @@
 
 // a1e4 Algoritmo 1 //
 //Escribe un programa que simula un semáforo, estara controlado por una variable isGreen 
-const a1e4 = () =>{
+const A1E4 = () =>{
   // se inicia la variable isGreen , para controlar el estado del semáforo//
   let isGreen = true;
   // hacer funcionar el semáforo si es true Cross the road //
@@ -14,12 +14,12 @@ if(isGreen){
   isGreen = false;
 }
 }
-a1e4();
+// A1E4();
 
 
 // a1e6 Algoritmos 1 // 
 // Escribir un programa que pida al usuario email y contraseña y deberá comparar los datos introducidos con los siguientes , que deberan estar guardados en variables y ponerle un mensaje de bienvenida y si los datos no son correctos pedirle que vuelva escribir sus datos //
-const a1e6 = () =>{
+const A1E6 = () =>{
   // guarda dos variables que contienen los datos email y contraseña que el usuario debe introducir //
   let userEmail = "tolkien@lordofrings.com";
   let userPassword = "aNBR6ZeWPY"
@@ -35,4 +35,4 @@ const a1e6 = () =>{
     console.log("Wrong password or email");
   }
 }
-a1e6();
+// A1E6();

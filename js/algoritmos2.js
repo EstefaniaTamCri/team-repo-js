@@ -11,7 +11,7 @@ Length of shortest word: 3 characters
 Length of longest word: 5 characters
 Avg. word length: 4 (con redondeo al número entero más cercano)*/
 
-const a2e6 = () => {
+const A2E6 = () => {
   // pide al usuario, el texto para analizar//
   const texto = prompt("Ingrese el texto a analizar:");
   // se crea 4 variables para analizar el texto //
@@ -105,4 +105,4 @@ const a2e6 = () => {
   let promedioLongitudPalabras = Math.round(longitudPalabras / numPalabras);
   console.log("Avg. word length:", promedioLongitudPalabras);
 };
-a2e6();
+// A2E6();
