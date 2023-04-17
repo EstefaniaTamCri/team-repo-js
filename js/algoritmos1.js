@@ -1,93 +1,6 @@
-//Preguntar al usuario si DNI o NIE. Comprobar, mediante las funciones para strings, si los datos introducidos son válidos
-const A1E9 = () =>{
-let question = prompt("¿Cuál es su DNI o NIE?");
-question = question.replace(/[\s\-]/gi, '')
-
-if (/^[xtXT]\d{7}[a-zA-Z]$/.test(question)) {
-    alert("El NIE introducido es válido.");
-    return;
-  }
-  if (/^\d{8}[a-zA-Z]$/.test(question)) {
-    const letra = question.charAt(question.length - 1);
-    const numeros = parseInt(question.substring(0, 8));
-    const letrasValidas = 'TRWAGMYFPDXBNJZSQVHLCKE';
-    const letraCorrecta = letrasValidas.charAt(numeros % 23);
-
-    if (letra.toUpperCase() === letraCorrecta) {
-      alert("El DNI introducido es válido.");
-      return;
-    }
-  }
-
-  alert("La identificación introducida no es válida.");
-}
-// A1E9();
-
-
-// Ejercicio 10. Investiga el objeto Math, y genera 2 números aleatorios, entre el 1 y el 6, para simular un
-// juego de dados. Comprueba los resultados obtenidos y muestra por consola el ganador. 
-const A1E10 = ()=> {
-let max = 6;
-let min = 1;
-let intentos = 1;
-
-let random1 = Math.floor(Math.random() * (max - min + 1)) + min;
-console.log("Player 1 has drawn the number: ", random1);
-let random2 = Math.floor(Math.random() * (max - min + 1)) + min;
-console.log("Player 2 has drawn the number: ", random2);
-
-if (random1 > random2){
-console.log("Player 1 wins!");
-} if(random1 == random2){
-console.log("draw!");
-} else if (random1 < random2){
-console.log("Player 2 wins!");
-};
-}
-A1E10();
-
-
-// a1e4 Algoritmo 1 //
-//Escribe un programa que simula un semáforo, estara controlado por una variable isGreen 
-const A1E4 = () =>{
-  // se inicia la variable isGreen , para controlar el estado del semáforo//
-  let isGreen = true;
-  // hacer funcionar el semáforo si es true Cross the road //
-if(isGreen){
-  console.log("Cross the road");
-  isGreen = true;
-  // y si no es true please await//
-}else{
-  console.log("Please await");
-  isGreen = false;
-}
-}
-// A1E4();
-
-
-// a1e6 Algoritmos 1 // 
-// Escribir un programa que pida al usuario email y contraseña y deberá comparar los datos introducidos con los siguientes , que deberan estar guardados en variables y ponerle un mensaje de bienvenida y si los datos no son correctos pedirle que vuelva escribir sus datos //
-const A1E6 = () =>{
-  // guarda dos variables que contienen los datos email y contraseña que el usuario debe introducir //
-  let userEmail = "tolkien@lordofrings.com";
-  let userPassword = "aNBR6ZeWPY"
-  // pedir al usuario que introduzca sus datos //
-  let email = prompt("Please, enter your email address:");
-  let password = prompt("Please, enter your password:");
-  // comparar los datos introducidos por el usuario sean iguales que los datos guardados en las variables //
-  if (userEmail == email && userPassword == password) {
-    // si ambos son iguales se muestra por consola el mensaje de bienvenido //
-    console.log("Welcome Mr. Tolkien");
-    // si no son iguales se muestra por consola , el mensaje que vuelva a escribir otra vez password o email //
-  }else{
-    console.log("Wrong password or email");
-  }
-}
-// A1E6();
-
-
 /* Algoritmos 1*/
 
+// A1E1
 /* Ejercicio 1
 |* Indique en la consola cuantos días tiene el mes en curso, 
 |* obteniendo el mes real del sistema.
@@ -102,7 +15,10 @@ const A1E1 = () => {
   return `El mes en curso tiene ${daysInMonth} días`;
 };
 
-/* Ejercicio 2
+// A1E2
+
+// A1E3
+/* Ejercicio 3
 |* programa que pregunte la temperatura exterior al usuario. 
 |* Si la temperatura está por debajo de 15 grados, lanzar una alerta con el mensaje: “Warm up”.
 |* En caso de que la temperatura sea entre 15 grados y 25, 
@@ -123,7 +39,44 @@ const A1E3 = () => {
   } // Si no se cumple ninguna de las anteriores, devuelve un aviso por consola
 };
 
-// A1 E7
+// A1E4
+//Escribe un programa que simula un semáforo, estara controlado por una variable isGreen
+const A1E4 = () => {
+  // se inicia la variable isGreen , para controlar el estado del semáforo//
+  let isGreen = true;
+  // hacer funcionar el semáforo si es true Cross the road //
+  if (isGreen) {
+    console.log("Cross the road");
+    isGreen = true;
+    // y si no es true please await//
+  } else {
+    console.log("Please await");
+    isGreen = false;
+  }
+};
+
+// A1E5
+
+// A1E6
+// Escribir un programa que pida al usuario email y contraseña y deberá comparar los datos introducidos con los siguientes , que deberan estar guardados en variables y ponerle un mensaje de bienvenida y si los datos no son correctos pedirle que vuelva escribir sus datos //
+const A1E6 = () => {
+  // guarda dos variables que contienen los datos email y contraseña que el usuario debe introducir //
+  let userEmail = "tolkien@lordofrings.com";
+  let userPassword = "aNBR6ZeWPY";
+  // pedir al usuario que introduzca sus datos //
+  let email = prompt("Please, enter your email address:");
+  let password = prompt("Please, enter your password:");
+  // comparar los datos introducidos por el usuario sean iguales que los datos guardados en las variables //
+  if (userEmail == email && userPassword == password) {
+    // si ambos son iguales se muestra por consola el mensaje de bienvenido //
+    console.log("Welcome Mr. Tolkien");
+    // si no son iguales se muestra por consola , el mensaje que vuelva a escribir otra vez password o email //
+  } else {
+    console.log("Wrong password or email");
+  }
+};
+
+// A1E7
 function A1E7() {
   // Varibles de euros y tasas de cambio
   let euros = prompt("Introduzca Euros a convertir");
@@ -136,10 +89,10 @@ function A1E7() {
 
   switch (!isNaN(euros)) {
     case true:
-      tasadolar = euros * cambiodolar;
-      tasayen = euros * cambioyen;
-      tasalibra = euros * cambiolibra;
-      tasafranco = euros * cambiofranco;
+      tasadolar = (euros * cambiodolar).toFixed(2);
+      tasayen = (euros * cambioyen).toFixed(2);
+      tasalibra = (euros * cambiolibra).toFixed(2);
+      tasafranco = (euros * cambiofranco).toFixed(2);
       break;
 
     // Si no es un valor númerico comunicar el aviso.
@@ -148,17 +101,17 @@ function A1E7() {
       break;
   }
 
-  let resultado = `${euros}€ equivalen a: ${tasadolar} dolares americanos, ${tasayen} yen japoneses, ${tasalibra} libras esterlinas y ${tasafranco} francos suizos`;
+  let resultado = `${euros}€ equivalen a: ${tasadolar} dolares americanos, ${tasayen} yenes japoneses, ${tasalibra} libras esterlinas y ${tasafranco} francos suizos`;
 
   return resultado;
 }
 
-//  A1 E8
+// A1E8
 function A1E8() {
   // Pedimos el número 1 y número 2 al usuario. Despues la operación a realizar.
   let num1 = parseInt(prompt("Introduzca número 1"));
   let num2 = parseInt(prompt("Introduzca número 2"));
-  let operacion = prompt("Elige la operación (suma, resta, multi, divide");
+  let operacion = prompt("Elige la operación (suma, resta, multi, divide)");
 
   // Si el valor introducido en el número 1 u 2 no es númerico, muestra aviso.
   if (!isNaN(num1) == false) {
@@ -197,3 +150,50 @@ function A1E8() {
     }
   }
 }
+
+// A1E9
+//Preguntar al usuario si DNI o NIE. Comprobar, mediante las funciones para strings, si los datos introducidos son válidos
+const A1E9 = () => {
+  let question = prompt("¿Cuál es su DNI o NIE?");
+  question = question.replace(/[\s\-]/gi, "");
+
+  if (/^[xtXT]\d{7}[a-zA-Z]$/.test(question)) {
+    alert("El NIE introducido es válido.");
+    return;
+  }
+  if (/^\d{8}[a-zA-Z]$/.test(question)) {
+    const letra = question.charAt(question.length - 1);
+    const numeros = parseInt(question.substring(0, 8));
+    const letrasValidas = "TRWAGMYFPDXBNJZSQVHLCKE";
+    const letraCorrecta = letrasValidas.charAt(numeros % 23);
+
+    if (letra.toUpperCase() === letraCorrecta) {
+      alert("El DNI introducido es válido.");
+      return;
+    }
+  }
+  alert("La identificación introducida no es válida.");
+};
+
+// A1E10
+// Ejercicio 10. Investiga el objeto Math, y genera 2 números aleatorios, entre el 1 y el 6, para simular un
+// juego de dados. Comprueba los resultados obtenidos y muestra por consola el ganador.
+const A1E10 = () => {
+  let max = 6;
+  let min = 1;
+  let intentos = 1;
+
+  let random1 = Math.floor(Math.random() * (max - min + 1)) + min;
+  console.log("Player 1 has drawn the number: ", random1);
+  let random2 = Math.floor(Math.random() * (max - min + 1)) + min;
+  console.log("Player 2 has drawn the number: ", random2);
+
+  if (random1 > random2) {
+    console.log("Player 1 wins!");
+  }
+  if (random1 == random2) {
+    console.log("draw!");
+  } else if (random1 < random2) {
+    console.log("Player 2 wins!");
+  }
+};

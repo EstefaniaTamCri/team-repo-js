@@ -1,97 +1,4 @@
-//Escribe un programa que genera matrículas aleatorias. El número de matrículas aleatorias será a petición del usuario. 
-const A3E5 = () => {
-  const number = parseInt(prompt("¿Cuántas matriculas desea generar?"));
-
-  if (isNaN(number) || number <= 0) {
-    console.error("El número de matrículas ingresado no es válido");
-  } else {
-    for (let i = 0; i < number; i++) {
-      let min = 0000;
-      let max = 9999;
-      let random = Math.floor(Math.random() * (max - min + 1)) + min;
-
-      function letters(length) {
-        let chars = "BCDFGHJKLMNPRSTVWXYZ";
-        let charLength = chars.length;
-        let result = "";
-        for (let i = 0; i < length; i++) {
-          result += chars.charAt(Math.floor(Math.random() * charLength));
-        }
-        return result;
-      }
-      let license = random + letters(3);
-
-      console.log(license);
-    }
-  }
-};
-// A3E5();
-
-//Escribe un programa que genera 100 números aleatorios, entre 0 y 500, y los almacena en un array. A continuación, filtra todos los números impares, ordenando los pares de mayor a menor.
-const A3E7 = () => {
-  let numbers = [];
-
-  const randomNumbers = (max, min) =>
-    Math.floor(Math.random() * (max - min + 1)) + min;
-
-  const fillArray = (array, elements, max, min) => {
-    for (let start = 0; start < elements; start++) {
-      array[start] = randomNumbers(max, min);
-    }
-    return array;
-  };
-
-  const showArray = (array) => {
-    for (let start = 0; start < array.length; start++) {
-      console.log(array[start]);
-    }
-  };
-
-  fillArray(numbers, 100, 500, 0);
-  console.log(numbers);
-
-  const evenNumbers = numbers.filter((number) => number % 2 == 0);
-  console.log(
-    "Estos son los números pares ordenados de mayor a menor: " +
-      evenNumbers.sort(function (a, b) {
-        return b - a;
-      })
-  );
-  const evenNumbersIm = numbers.filter((number) => number % 2 != 0);
-  console.log("Estos son los números impares: " + evenNumbersIm);
-
-  const numeros = numbers;
-  let impares = [numeros.filter((x) => x % 2 != 0).length];
-  console.log("La cantidad de números impares que hay es: " + impares);
-  let pares = [numeros.filter((x) => x % 2 == 0).length];
-  console.log("La cantidad de números pares que hay es: " + pares);
-};
-// A3E7();
-
-//a3e3 Algoritmos 3//
-// Escribe un programa que genere 10 códigos hexadecimales aleatorios (no repetidos), y escriba en la consola “Hello World!” del color aleatorio generado//
-   function A3E3 () {
-        // generar un número aleatorio entre 0 y 1, lo multiplica * 16777215 y utiliza el método .toString(16)para convertir el resultado en una cadena hexadecimal //
-        return Math.floor(Math.random() * 16777215).toString(16);
-    }
-    // almacenar valores únicos //
-let codigosGenerados = new Set ();
-// generar 10 codigo hexadecimales únicos //
-while (codigosGenerados.size < 10) {
-    let codigo = A3E3();
-    //se asegura que el codigo no se repita si esta repetido lo quita y si no esta lo añade //
-    if (!codigosGenerados.has(codigo)) {
-        codigosGenerados.add(codigo);
-    }
-}
-codigosGenerados.forEach((codigo) =>{
-    //para imprimir en la consola el mensaje "Hello World!" con un color de texto correspondiente a cada código hexadecimal generado. Para lograr esto, se utiliza una cadena de formato especial %c seguida del mensaje "Hello World!", y otra cadena de formato que define el color de texto con el código hexadecimal correspondiente//
-    console.log(`%cHello World!`,`color: #${codigo}`);
-})
-// A3E3();
-
 // A3E1
-
 function A3E1() {
   // Pides número max y número minimo.
 
@@ -126,6 +33,7 @@ function A3E1() {
   console.log("Min value: ", minvalue);
 }
 
+// A3E2
 /*Ejercicio 2
 Escribe un programa que recoge la hora del sistema, y al cargar la página pregunta al usuario su nombre. A continuación, muestra un saludo personalizado (alerta) en función de la hora, teniendo en cuenta los siguientes rangos:
 • Entre las 5:00 y las 11:59 → “Good Morning, {userName}!”
@@ -167,12 +75,64 @@ const A3E2 = () => {
   }
 };
 
-// A3E6
+//A3E3//
+// Escribe un programa que genere 10 códigos hexadecimales aleatorios (no repetidos), y escriba en la consola “Hello World!” del color aleatorio generado//
+function A3E3() {
+  const hex = () => {
+    // generar un número aleatorio entre 0 y 1, lo multiplica * 16777215 y utiliza el método .toString(16)para convertir el resultado en una cadena hexadecimal //
+    return Math.floor(Math.random() * 16777215).toString(16);
+  };
+  // almacenar valores únicos //
+  let codigosGenerados = new Set();
+  // generar 10 codigo hexadecimales únicos //
+  while (codigosGenerados.size < 10) {
+    let codigo = hex();
+    //se asegura que el codigo no se repita si esta repetido lo quita y si no esta lo añade //
+    if (!codigosGenerados.has(codigo)) {
+      codigosGenerados.add(codigo);
+    }
+  }
+  codigosGenerados.forEach((codigo) => {
+    //para imprimir en la consola el mensaje "Hello World!" con un color de texto correspondiente a cada código hexadecimal generado. Para lograr esto, se utiliza una cadena de formato especial %c seguida del mensaje "Hello World!", y otra cadena de formato que define el color de texto con el código hexadecimal correspondiente//
+    console.log(`%cHello World!`, `color: #${codigo}`);
+  });
+}
 
+// A3E4
+
+// A3E5
+//Escribe un programa que genera matrículas aleatorias. El número de matrículas aleatorias será a petición del usuario.
+const A3E5 = () => {
+  const number = parseInt(prompt("¿Cuántas matriculas desea generar?"));
+
+  if (isNaN(number) || number <= 0) {
+    console.error("El número de matrículas ingresado no es válido");
+  } else {
+    for (let i = 0; i < number; i++) {
+      let min = 0000;
+      let max = 9999;
+      let random = Math.floor(Math.random() * (max - min + 1)) + min;
+
+      function letters(length) {
+        let chars = "BCDFGHJKLMNPRSTVWXYZ";
+        let charLength = chars.length;
+        let result = "";
+        for (let i = 0; i < length; i++) {
+          result += chars.charAt(Math.floor(Math.random() * charLength));
+        }
+        return result;
+      }
+      let license = `${random}${letters(3)}`;
+
+      console.log(license);
+    }
+  }
+};
+
+// A3E6
 // 20 citas de Oscar Wilde en un array
 function A3E6() {
-
-let citas = [
+  let citas = [
     "Sé tú mismo, los demás puestos están ocupados.",
     "Vivir es lo más raro del mundo. La mayoría de las personas tan solo existen.",
     "Tengo gustos sencillos, solo me conformo con lo mejor.",
@@ -192,106 +152,145 @@ let citas = [
     "La mejor manera de librarse de la tentación es caer en ella.",
     "Nunca debemos ir por el camino trillado, porque solo conduce a donde otros han ido antes.",
     "Los celos son una especie de homenaje que la mediocridad le rinde al genio.",
-    "La experiencia es el nombre que damos a nuestras equivocaciones."
+    "La experiencia es el nombre que damos a nuestras equivocaciones.",
   ];
-  
-// Se crea una función que recorre el array y muestra por consola una cita aleatoria.
+
+  // Se crea una función que recorre el array y muestra por consola una cita aleatoria.
+
   function mostrarcitaaleatoria() {
-    let citaaleatoria = citas[Math.floor(Math.random()*(19 - 0 +1)+ 0)];
-    console.log(citaaleatoria); 
+    let citaaleatoria = citas[Math.floor(Math.random() * (19 - 0 + 1) + 0)];
+    console.log(citaaleatoria);
   }
+  mostrarcitaaleatoria();
 
-// Se llama a la función y se muestra por consola la cita aleatoria cada 10 segundos.
-let interval = setInterval(mostrarcitaaleatoria, 10000)
+  // Se llama a la función y se muestra por consola la cita aleatoria cada 10 segundos.
+  let interval = setInterval(mostrarcitaaleatoria, 10000);
 
-// Se ejecuta la funcion interval durante 2 minutos.
-setTimeout(function() {
+  // Se ejecuta la funcion interval durante 2 minutos.
+  setTimeout(function () {
     clearInterval(interval);
-}, 120000);
+  }, 120000);
 }
 
+// A3E7
+//Escribe un programa que genera 100 números aleatorios, entre 0 y 500, y los almacena en un array. A continuación, filtra todos los números impares, ordenando los pares de mayor a menor.
+const A3E7 = () => {
+  let numbers = [];
+
+  const randomNumbers = (max, min) =>
+    Math.floor(Math.random() * (max - min + 1)) + min;
+
+  const fillArray = (array, elements, max, min) => {
+    for (let start = 0; start < elements; start++) {
+      array[start] = randomNumbers(max, min);
+    }
+    return array;
+  };
+
+  const showArray = (array) => {
+    for (let start = 0; start < array.length; start++) {
+      console.log(array[start]);
+    }
+  };
+
+  fillArray(numbers, 100, 500, 0);
+  console.log(numbers);
+
+  const evenNumbers = numbers.filter((number) => number % 2 == 0);
+  console.log(
+    "Estos son los números pares ordenados de mayor a menor: " +
+      evenNumbers.sort(function (a, b) {
+        return b - a;
+      })
+  );
+  const evenNumbersIm = numbers.filter((number) => number % 2 != 0);
+  console.log("Estos son los números impares: " + evenNumbersIm);
+
+  const numeros = numbers;
+  let impares = [numeros.filter((x) => x % 2 != 0).length];
+  console.log("La cantidad de números impares que hay es: " + impares);
+  let pares = [numeros.filter((x) => x % 2 == 0).length];
+  console.log("La cantidad de números pares que hay es: " + pares);
+};
 
 // A3E8
-
 function A3E8() {
+  // Declaración de variables, cartas y palos.
+  let palos = ["Clubs ♣", "Diamonds ♦", "Hearts ♥", "Spades ♠"];
+  let cartas = ["ACE", "KING", "QUEEN", "JACK", 10, 9, 8, 7, 6, 5, 4, 3, 2];
+  let saldo = 500;
+  let seguir = "";
+  let saldoact = saldo;
+  let beneficios = 0;
 
-// Declaración de variables, cartas y palos.
-let palos = ["Clubs ♣", "Diamonds ♦", "Hearts ♥", "Spades ♠"];
-let cartas = ["ACE", "KING", "QUEEN", "JACK", 10, 9, 8, 7, 6, 5, 4, 3, 2];
-
-let saldo = 500;
-let seguir = "";
-let saldoact = saldo;
-let beneficios = 0;
-
-// Función que genera número aleatorio + palo y la muestra
-function card(numCart) {
-  numAle1 = Math.floor(Math.random() * ((palos.length - 1) + 0 + 1) + 0);
-  numAle2 = Math.floor(Math.random() * ((cartas.length - 1) + 0 + 1) + 0);
-  let cartaPalo = palos[numAle1];
-  let cartaAle = cartas[numAle2];
-  console.log('Carta-' + numCart + ": " + cartaAle + "-" + cartaPalo);
-  return {
-    cartaAle: cartaAle,
-    cartaPalo: cartaPalo
-  }
-}
-
-// Empieza la lógica del juego.
-do {
-    let apuesta = parseInt(prompt(`Saldo actual: ${saldoact} €. Ingrese la apuesta:`));
-
-
-  // Comprueba que la apuesta sea válida
-  while (apuesta > saldoact) {
-    console.log("Apuesta inválida. No puede apostar más de su saldo actual.");
-    apuesta = parseInt(prompt(`Saldo actual: ${saldoact} €. Ingrese la apuesta:`));
+  // Función que genera número aleatorio + palo y la muestra
+  function card(numCart) {
+    numAle1 = Math.floor(Math.random() * (palos.length - 1 + 0 + 1) + 0);
+    numAle2 = Math.floor(Math.random() * (cartas.length - 1 + 0 + 1) + 0);
+    let cartaPalo = palos[numAle1];
+    let cartaAle = cartas[numAle2];
+    console.log("Carta-" + numCart + ": " + cartaAle + "-" + cartaPalo);
+    return {
+      cartaAle: cartaAle,
+      cartaPalo: cartaPalo,
+    };
   }
 
-  // Comienza el juego, genera la carta y comprueba si ganas o pierdes. Comparando valores
-  let carta1 = card(1).cartaAle;
-  let carta2 = card(2).cartaAle;
-  let posicionCarta1 = cartas.indexOf(carta1);
-  let posicionCarta2 = cartas.indexOf(carta2);
-  console.log(carta1);
-  console.log(carta2);
+  // Empieza la lógica del juego.
+  do {
+    let apuesta = parseInt(
+      prompt(`Saldo actual: ${saldoact} €. Ingrese la apuesta:`)
+    );
 
-  if (posicionCarta1 < posicionCarta2) {
-    console.log('You Win');
-    saldoact += apuesta;
-  } else if (posicionCarta2 < posicionCarta1) {
-    console.log('You Lose');
-    saldoact -= apuesta;
-  } else if (posicionCarta1 == posicionCarta2) {
-    console.log('Draw');
-  }
+    // Comprueba que la apuesta sea válida
+    while (apuesta > saldoact) {
+      console.log("Apuesta inválida. No puede apostar más de su saldo actual.");
+      apuesta = parseInt(
+        prompt(`Saldo actual: ${saldoact} €. Ingrese la apuesta:`)
+      );
+    }
 
-  console.log(`Saldo actual: ${saldoact} €`);
+    // Comienza el juego, genera la carta y comprueba si ganas o pierdes. Comparando valores
+    let carta1 = card(1).cartaAle;
+    let carta2 = card(2).cartaAle;
+    let posicionCarta1 = cartas.indexOf(carta1);
+    let posicionCarta2 = cartas.indexOf(carta2);
+    console.log(carta1);
+    console.log(carta2);
 
-  if (saldoact > 0){
-     seguir = prompt("¿Quiere seguir jugando? (y/n)");
+    if (posicionCarta1 < posicionCarta2) {
+      console.log("You Win");
+      saldoact += apuesta;
+    } else if (posicionCarta2 < posicionCarta1) {
+      console.log("You Lose");
+      saldoact -= apuesta;
+    } else if (posicionCarta1 == posicionCarta2) {
+      console.log("Draw");
+    }
+
+    console.log(`Saldo actual: ${saldoact} €`);
+
+    if (saldoact > 0) {
+      seguir = prompt("¿Quiere seguir jugando? (y/n)");
+    } else {
+      seguir = "n";
+    }
+  } while (seguir === "y" && saldoact > 0);
+
+  // Comprueba si ha perdido todo el saldo o ha decidido retirarse
+  if (saldoact <= 0) {
+    console.log("Has perdido todo tu dinero. ¡Gracias por jugar!");
   } else {
-    seguir = "n";
+    console.log("¡Hasta la próxima!");
   }
- 
 
-} while (seguir === "y" && saldoact > 0);
-
-// Comprueba si ha perdido todo el saldo o ha decidido retirarse
-if (saldoact <= 0) {
-  console.log("Has perdido todo tu dinero. ¡Gracias por jugar!");
-} else {
-  console.log("¡Hasta la próxima!");
-}
-
-// Comprueba beneficios
-beneficios = saldoact - saldo;
-if (beneficios > 0) {
-  console.log(`Beneficio: + ${beneficios} €.`);
-}else if (beneficios < 0) {
+  // Comprueba beneficios
+  beneficios = saldoact - saldo;
+  if (beneficios > 0) {
+    console.log(`Beneficio: + ${beneficios} €.`);
+  } else if (beneficios < 0) {
     console.log("Beneficio: - " + Math.abs(beneficios));
-}
-else {
+  } else {
     console.log("No has ganado ni perdido dinero.");
   }
- }
+}
