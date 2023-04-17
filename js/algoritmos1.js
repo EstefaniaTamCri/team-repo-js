@@ -16,6 +16,37 @@ const A1E1 = () => {
 };
 
 // A1E2
+// e1e2 Mes y dias //
+// Declarar la variable y el prompt para preguntar al usuario //
+
+const A1E2 = () => {
+  let month = prompt(
+    "Please, choose a month : Geneuary || February || March || April || June || July || August || September || October || November || December"
+  );
+  console.log(month.toUpperCase);
+  // Almacenar datos y sacar booleano dependiendo de la opcion elegida por el usuario //
+  if (
+    month == "Geneuary" ||
+    "March" ||
+    "May" ||
+    "July" ||
+    "August" ||
+    "October" ||
+    "December"
+  ) {
+    console.log(
+      month.charAt(0).toUpperCase() + month.slice() + " have 31 days"
+    );
+  } else if (month.to == "April" || "June" || "September" || "November") {
+    console.log(month.charAt(0).toUpperCase() + " have 30 days");
+  } else if (month == "febrero") {
+    console.log(month.charAt(0).toUpperCase() + " have 28 days");
+
+    // en caso de no selecionar cualquier opcion válida proporcionada al usuario //
+  } else {
+    console.log("That`s not a real month");
+  }
+};
 
 // A1E3
 /* Ejercicio 3
@@ -56,6 +87,69 @@ const A1E4 = () => {
 };
 
 // A1E5
+const eie5 = () => {
+  let userNumber = prompt("Choose a Temperature ....");
+  let tempMax = 300;
+  let tempMin = -300;
+  let tempNames = [
+    " Absolute Zero temperaure, Freezing point, Body temperature, Boiling point",
+  ];
+  let Farenheit = userNumber * 1.8 + 32;
+
+  if (isNaN(userNumber)) {
+    alert("Sorry,   That`s an invalid Number,  Try it again !!! ");
+  } else {
+    switch (userNumber) {
+      case "-273":
+        alert("This is Absolute Zero temperature:" + "  " + userNumber + "Cº");
+        user = confirm("Would you like convert Celsius to Farenheit");
+        if (user === true) {
+          alert(" The Farenheit temperature is : " + " " + Farenheit + "ºF !");
+        }
+        break;
+      case "0":
+        alert("This is Freezing point temperature:" + "  " + userNumber + "Cº");
+        user = confirm("Would you like convert Celsius to Farenheit");
+        if (user === true) {
+          alert(" The Farenheit temperature is : " + " " + Farenheit + "ºF !");
+        }
+        break;
+      case "37":
+        alert("This is Body temperature:" + "  " + userNumber + "Cº");
+        user = confirm("Would you like convert Celsius to Farenheit");
+        if (user === true) {
+          alert(" The Farenheit temperature is : " + " " + Farenheit + "ºF !");
+        }
+        break;
+      case "100":
+        alert("This is Boiling point temperature :" + "  " + userNumber + "Cº");
+        user = confirm("Would you like convert Celsius to Farenheit");
+        if (user === true) {
+          alert(" The Farenheit temperature is : " + " " + Farenheit + "ºF !");
+        }
+        break;
+      case userNumber:
+        alert("The temperature is :" + "  " + userNumber + "Cº");
+
+      default:
+        if (userNumber > tempMax) {
+          alert("Burn time, you are dead!!");
+        } else if (userNumber < tempMin) {
+          alert("Ice age or winter is coming!!!");
+        } else if (userNumber) {
+          let user = confirm("Would you like convert Celsius to Farenheit");
+
+          if (user === true) {
+            Farenheit;
+            alert(
+              " The Farenheit temperature is : " + " " + Farenheit + "ºF !"
+            );
+          }
+        }
+        break;
+    }
+  }
+};
 
 // A1E6
 // Escribir un programa que pida al usuario email y contraseña y deberá comparar los datos introducidos con los siguientes , que deberan estar guardados en variables y ponerle un mensaje de bienvenida y si los datos no son correctos pedirle que vuelva escribir sus datos //

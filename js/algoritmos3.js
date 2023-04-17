@@ -100,6 +100,73 @@ function A3E3() {
 
 // A3E4
 
+
+const A3E4 = ()=>{     
+
+//Pedimos al usuario que ingrese su DNI e ingresamos variable contador para el nº intentos. && toUpperCase para aceptar minusculas en el prompt
+let userNumber = prompt("Por favor, ingrese su DNI:").toUpperCase();
+let contador = 0;
+
+// Bucle while para limitar el numero de intentos e insertar nº caracteres correctos.
+while (userNumber) {
+    if (userNumber.length != 9) {
+        alert("Por favor, su DNI debe tener nueve caracteres !");
+        userNumber = prompt("Por favor, ingrese de nuevo su DNI:");
+        contador++;
+    } else {
+        alert("Procesando informacion...");
+        break;
+    } if (contador == 2) {
+        alert("Demasiados intentos, pruebe mas tarde !");
+        break;
+    }
+}
+
+// Ingresamos variable con un array en cada tabla de comprobacion de DNI.
+let resto = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22];
+let letra = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'];
+
+// guardamos la variable de la ultima letra del DNI proporcionada por el usuario
+let letterDni = userNumber.slice(-1);
+console.log(letterDni);
+
+// Obtenemos  el numero del DNI proporcionado por el usuario sin la letra para su division
+let onlyNumber = userNumber.substring(0, userNumber.length - 1);
+console.log(onlyNumber);
+// obtenemos la verificacion de la division de la regla, para obtener el numero int.
+let restoNumero = onlyNumber % 23;
+console.log(restoNumero);
+
+// obtener  y comparar el mismo numero de la tabla letra y comparar
+let checkResto = letra[restoNumero];
+console.log(checkResto);
+
+//bucle para comparar que la posicion del array y devolver un boleano en la comprobacion
+if (checkResto == letterDni) {
+    console.log("letter check =" + " " + true);
+
+} else {
+    console.log(false);
+}
+// bucle para checkear si restoNumero y si la letra dada por el usuario coincide con la del obtenida a partir de ese numero(resto)
+if (resto.includes(restoNumero) && letterDni === checkResto) {
+    console.log(true);
+    console.log("DNI valido");
+    alert("El DNI" + " " + userNumber + " " + "es valido !");
+}
+// comparamos la letra obtenida por la posicion y la comparamos con la proporcionada por el usuario
+
+else {
+    console.log("el DNI introducido es invalido");
+    alert("El  DNI introducido : " + " " + userNumber + " " + " no es valido !")
+}
+} 
+
+
+
+
+
+
 // A3E5
 //Escribe un programa que genera matrículas aleatorias. El número de matrículas aleatorias será a petición del usuario.
 const A3E5 = () => {
