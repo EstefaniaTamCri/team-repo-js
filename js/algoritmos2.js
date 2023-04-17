@@ -26,30 +26,9 @@ function A2E2() {
 }
 
 // A2E3
-
 const A2E3 = () => {
-  let asteriscos = ["*", "*", "*", "*"];
-  console.log(" los asteriscos son:");
-  // imprimir el array con la funcion join que une los elementos de un array
-  // crear 4 columnas de asteriscon con el bucle for
-  for (let i = 1; i <= 4; i++) {
-    console.log(asteriscos.join(""));
-  }
-
-  // Mas simple :)
-  for (let i = 1; i <= 4; ++i) {
     let resultado = "****";
-    console.log(resultado);
-  }
-
-  // copiada de youtube
-  for (let i = 1; i <= 4; i++) {
-    let row = "";
-    for (let j = 1; j <= 4; j++) {
-      row += "*";
-    }
-    console.log(row);
-  }
+    console.log(`${resultado}\n`.repeat(4));
 };
 
 // A2E4
@@ -74,46 +53,44 @@ function A2E4() {
 }
 
 // A2E5
-const A2E5 = () => { 
-let stringManager = prompt("Please input some sentence:");
-let options = prompt(
-  "Thank you! Now, would you like to use the following options?:\n\n --- Replace characters with symbols.\n --- Capitalize.\n --- Replace spaces with commas.\n\nPlease enter 'y' for Yes or 'n' for No:"
-);
-
-while (options !== "y" && options !== "n") {
-  options = prompt("Cabessa pulsa (y) o (n) mahara....");
-}
-
-let initTime = performance.now();
-
-if (options === "y") {
-  replaceChars = stringManager
-    .replace(/a/g, "@")
-    .replace(/e/g, "3")
-    .replace(/i/g, "1")
-    .replace(/o/g, "0")
-    .replace(/s/g, "$");
-  capitalize = stringManager.toUpperCase();
-  replaceSpaces = stringManager.replace(/\s/g, ",");
-  console.log(
-    stringManager +
-      "\n" +
-      replaceChars +
-      "\n" +
-      capitalize +
-      "\n" +
-      replaceSpaces
+const A2E5 = () => {
+  let stringManager = prompt("Please input some sentence:");
+  let options = prompt(
+    "Thank you! Now, would you like to use the following options?:\n\n --- Replace characters with symbols.\n --- Capitalize.\n --- Replace spaces with commas.\n\nPlease enter 'y' for Yes or 'n' for No:"
   );
-} else if (options === "n") {
-  console.log("te pierde mi magia loko!");
-}
 
-let endTime = performance.now();
-let totalTime = endTime - initTime;
-console.log(`Work done in ${totalTime.toFixed(2)} milliseconds.`);
+  while (options !== "y" && options !== "n") {
+    options = prompt("Cabessa pulsa (y) o (n) mahara....");
+  }
 
- }
+  let initTime = performance.now();
 
+  if (options === "y") {
+    replaceChars = stringManager
+      .replace(/a/g, "@")
+      .replace(/e/g, "3")
+      .replace(/i/g, "1")
+      .replace(/o/g, "0")
+      .replace(/s/g, "$");
+    capitalize = stringManager.toUpperCase();
+    replaceSpaces = stringManager.replace(/\s/g, ",");
+    console.log(
+      stringManager +
+        "\n" +
+        replaceChars +
+        "\n" +
+        capitalize +
+        "\n" +
+        replaceSpaces
+    );
+  } else if (options === "n") {
+    console.log("te pierde mi magia loko!");
+  }
+
+  let endTime = performance.now();
+  let totalTime = endTime - initTime;
+  console.log(`Work done in ${totalTime.toFixed(2)} milliseconds.`);
+};
 
 // A2E6
 /* Programa para generar estadísticas de texto.Recibirá un string proporcionado por el

@@ -16,33 +16,25 @@ const A1E1 = () => {
 };
 
 // A1E2
-// e1e2 Mes y dias //
-// Declarar la variable y el prompt para preguntar al usuario //
-
+// Declarar la variable y el prompt para preguntar al usuario
 const A1E2 = () => {
-  let month = prompt(
-    "Please, choose a month : Geneuary || February || March || April || June || July || August || September || October || November || December"
-  );
-  console.log(month.toUpperCase);
-  // Almacenar datos y sacar booleano dependiendo de la opcion elegida por el usuario //
+  let month = prompt("Please, choose a month \n Example: January").toLocaleLowerCase();
+  // Almacenar datos y sacar booleano dependiendo de la opcion elegida por el usuario
   if (
-    month == "Geneuary" ||
-    "March" ||
-    "May" ||
-    "July" ||
-    "August" ||
-    "October" ||
-    "December"
+    month === "january" ||
+    month === "march" ||
+    month === "may" ||
+    month === "july" ||
+    month === "august" ||
+    month === "october" ||
+    month === "december"
   ) {
-    console.log(
-      month.charAt(0).toUpperCase() + month.slice() + " have 31 days"
-    );
-  } else if (month.to == "April" || "June" || "September" || "November") {
-    console.log(month.charAt(0).toUpperCase() + " have 30 days");
-  } else if (month == "febrero") {
-    console.log(month.charAt(0).toUpperCase() + " have 28 days");
-
-    // en caso de no selecionar cualquier opcion válida proporcionada al usuario //
+    console.log(month.slice(0,1).toUpperCase() + month.slice(1) + " have 31 days");
+  } else if (month === "april" || month ===  "june" || month ===  "september" || month ===  "november") {
+    console.log(month.slice(0,1).toUpperCase() + month.slice(1) + " have 30 days");
+  } else if (month === "february") {
+    console.log(month.slice(0,1).toUpperCase() + month.slice(1) + " have 28 days");
+    // en caso de no selecionar cualquier opcion válida proporcionada al usuario
   } else {
     console.log("That`s not a real month");
   }
@@ -87,17 +79,14 @@ const A1E4 = () => {
 };
 
 // A1E5
-const eie5 = () => {
-  let userNumber = prompt("Choose a Temperature ....");
+const A1E5 = () => {
+  let userNumber = prompt("Choose a Temperature ...");
   let tempMax = 300;
   let tempMin = -300;
-  let tempNames = [
-    " Absolute Zero temperaure, Freezing point, Body temperature, Boiling point",
-  ];
   let Farenheit = userNumber * 1.8 + 32;
 
   if (isNaN(userNumber)) {
-    alert("Sorry,   That`s an invalid Number,  Try it again !!! ");
+    alert("Sorry, That`s an invalid number, Try it again !!!");
   } else {
     switch (userNumber) {
       case "-273":
