@@ -75,19 +75,19 @@ const A3E2 = () => {
   }
 };
 
-//A3E3//
-// Escribe un programa que genere 10 códigos hexadecimales aleatorios (no repetidos), y escriba en la consola “Hello World!” del color aleatorio generado//
+//A3E3
+// Escribe un programa que genere 10 códigos hexadecimales aleatorios (no repetidos), y escriba en la consola “Hello World!” del color aleatorio generado
 function A3E3() {
   const hex = () => {
-    // generar un número aleatorio entre 0 y 1, lo multiplica * 16777215 y utiliza el método .toString(16)para convertir el resultado en una cadena hexadecimal //
+    // generar un número aleatorio entre 0 y 1, lo multiplica * 16777215 y utiliza el método .toString(16)para convertir el resultado en una cadena hexadecimal
     return Math.floor(Math.random() * 16777215).toString(16);
   };
-  // almacenar valores únicos //
+  // almacenar valores únicos
   let codigosGenerados = new Set();
-  // generar 10 codigo hexadecimales únicos //
+  // generar 10 codigo hexadecimales únicos
   while (codigosGenerados.size < 10) {
     let codigo = hex();
-    //se asegura que el codigo no se repita si esta repetido lo quita y si no esta lo añade //
+    //se asegura que el codigo no se repita si esta repetido lo quita y si no esta lo añade
     if (!codigosGenerados.has(codigo)) {
       codigosGenerados.add(codigo);
     }
@@ -122,8 +122,9 @@ const A3E5 = () => {
         }
         return result;
       }
-      let license = `${random}${letters(3)}`;
-
+      let license = `${random.toString().padStart(4, "0")}${letters(3)}`;
+      // toString pasa 'random' a string para posteriormente que 'padStart añada los caracteres indicados
+      // al principio de la cadena de texto, hasta que ésta tenga la longitud determinada(4)
       console.log(license);
     }
   }
