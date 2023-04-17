@@ -1,3 +1,13 @@
+// a2e1
+//Escribe un programa para contar las letras en la palabra: 
+//palindrome, mostrándolas una a una.
+const A2E1 = () =>{
+  let word = "palindrome";
+let change = Array.from(word);
+console.log(change);  
+}
+// A2E1()
+
 /* a2e6 :
 Programa para generar estadísticas de texto.Recibirá un string proporcionado por el
 usuario, y a modo de ejemplo, para la entrada: Lorem ipsum dolor sit amet, mostrará la siguiente
@@ -263,4 +273,3 @@ const A2E7 = () => {
     }
   }
 };
-
