@@ -295,3 +295,63 @@ function A3E8() {
     console.log("No has ganado ni perdido dinero.");
   }
 }
+
+//A3E9
+const alfabeto = {
+  a: 0,
+  b: 1,
+  c: 2,
+  d: 3,
+  e: 4,
+  f: 5,
+  g: 6,
+  h: 7,
+  i: 8,
+  j: 9,
+  k: 10,
+  l: 11,
+  m: 12,
+  n: 13,
+  ñ: 14,
+  o: 15,
+  p: 16,
+  q: 17,
+  r: 18,
+  s: 19,
+  t: 20,
+  u: 21,
+  v: 22,
+  w: 23,
+  x: 24,
+  y: 25,
+  z: 26,
+};
+
+const A3E9 = () => {
+  let tipo = prompt("¿Quieres cifrar o descifrar?\n(cifrar/descifrar)");
+    let resultado = "";
+    if (tipo != "cifrar" && tipo != "descifrar") {
+      alert("Introduce un código válido");
+      A3E9();
+    } else {
+    let texto = prompt("Introduce tu mensaje").toLowerCase();
+    for (let i = 0; i < texto.length; i++) {
+      let letra = texto[i];
+
+      if (letra in alfabeto) {
+        let posicion = alfabeto[letra];
+
+        if (tipo == "cifrar") {
+          posicion = (posicion + 3) % 27;
+        } else if (tipo == "descifrar") {
+          posicion = (posicion - 3 + 27) % 27;
+        }
+
+        resultado += Object.keys(alfabeto)[posicion];
+      } else {
+        resultado += letra;
+      }
+    }
+  }
+  console.log(resultado);
+};
