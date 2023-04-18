@@ -1,3 +1,4 @@
+
 //Preguntar al usuario si DNI o NIE. Comprobar, mediante las funciones para strings, si los datos introducidos son válidos
 const A1E9 = () =>{
 let question = prompt("¿Cuál es su DNI o NIE?");
