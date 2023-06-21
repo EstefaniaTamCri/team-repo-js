@@ -27,8 +27,8 @@ function A2E2() {
 
 // A2E3
 const A2E3 = () => {
-    let resultado = "****";
-    console.log(`${resultado}\n`.repeat(4));
+  let resultado = "****";
+  console.log(`${resultado}\n`.repeat(4));
 };
 
 // A2E4
@@ -66,29 +66,44 @@ const A2E5 = () => {
   let initTime = performance.now();
 
   if (options === "y") {
-    replaceChars = stringManager
-      .replace(/a/g, "@")
-      .replace(/e/g, "3")
-      .replace(/i/g, "1")
-      .replace(/o/g, "0")
-      .replace(/s/g, "$");
-    capitalize = stringManager.toUpperCase();
+    replaceChars = stringManager;
+    let first = replaceChars
+      .replaceAll("a", "@")
+      .replaceAll("e", "3")
+      .replaceAll("i", "1")
+      .replaceAll("o", "0")
+      .replaceAll("s", "$");
+
+    const words = stringManager.split(" ");
+
+    for (let i = 0; i < words.length; i++) {
+      words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+    }
+    ;
+    // capitalize = stringManager.toUpperCase();
     replaceSpaces = stringManager.replace(/\s/g, ",");
     console.log(
       stringManager +
         "\n" +
-        replaceChars +
+        "Primera opción: " +
+        first +
         "\n" +
-        capitalize +
+        "Segunda opción: " +
+        words.join(" ") +
         "\n" +
+        "Tercera opción: " +
         replaceSpaces
     );
   } else if (options === "n") {
     console.log("te pierde mi magia loko!");
   }
-
+  caracteres = stringManager.length;
+  textoAreaDividido = stringManager.split(" ");
+  numeroPalabras = textoAreaDividido.length;
+  
   let endTime = performance.now();
   let totalTime = endTime - initTime;
+  console.log(numeroPalabras + " words," + caracteres + " chars");
   console.log(`Work done in ${totalTime.toFixed(2)} milliseconds.`);
 };
 
